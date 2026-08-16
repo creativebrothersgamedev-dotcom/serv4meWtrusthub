@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from '@/context/AuthContext';
 import { I18nProvider } from '@/i18n/I18nContext';
+import { ErrorBoundary } from '@/components/common/ErrorBoundary';
 import { Navbar } from '@/components/layout/Navbar';
 import { ProtectedRoute } from '@/components/layout/ProtectedRoute';
 import { BrowsePage } from '@/pages/BrowsePage';
@@ -15,6 +16,7 @@ import { AdminGate } from '@/components/layout/AdminGate';
 
 function App() {
   return (
+    <ErrorBoundary>
     <I18nProvider>
       <AuthProvider>
         <BrowserRouter>
@@ -59,6 +61,7 @@ function App() {
         </BrowserRouter>
       </AuthProvider>
     </I18nProvider>
+    </ErrorBoundary>
   );
 }
 
